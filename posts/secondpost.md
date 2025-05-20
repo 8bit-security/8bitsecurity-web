@@ -1,13 +1,16 @@
 ---
 title: This is the second example post
+cover: "https://8bitsecurity.com/wp-content/uploads/2025/04/leak.jpg?w=1024"
 metaDescription: This is a sample meta description. If one is not present in
   your page/post's front matter, the default metadata.description will be used
   instead.
 date: 2020-01-01
 author: John Appleseed
 summary: Why contemplating our mortality can be a powerful catalyst for change
-tags:
-  - sport
+excerpt: "Recon techniques that actually work in enterprise environments."
+tags: [
+    redteam
+  ]
 ---
 Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
 
