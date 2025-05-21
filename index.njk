@@ -8,12 +8,6 @@ title: Home
   <p>Actionable insights, breaking threats, and hands-on toolkits to keep you ahead of attackers.</p>
 </section>
 
-<!--
-<section class="intro">
-  <h3>Why 8BitSecurity?</h3>
-  <p>We deliver threat intelligence, red team tactics, and real-world tools — all built by cybersecurity professionals. No fluff. No ads. Just signal.</p>
-</section>
--->
 <section class="content-grid">
   {% set tagLabels = {
     "tools": "🛠 Tool of the Week",
@@ -45,16 +39,16 @@ title: Home
   <h3>🆕 Latest Insights</h3>
   <div class="post-list">
     {% for post in collections.post | reverse | limit(5) %}
-      <div class="post-preview">
+      <a href="{{ post.url }}" class="post-preview a-no-style">
         {% if post.data.cover %}
           <img src="{{ post.data.cover }}" alt="{{ post.data.title }}" class="cover-img" />
         {% endif %}
         <div class="post-box">
-          <a class="post-title" href="{{ post.url }}">{{ post.data.title }}</a>
+          <h4 class="post-preview-title">{{ post.data.title }}</h4>
           <p>{{ post.data.excerpt }}</p>
           <small>{{ post.date | readableDate }}</small>
         </div>
-      </div>
+      </a>
     {% endfor %}
   </div>
 </section>

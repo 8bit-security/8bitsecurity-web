@@ -1,0 +1,86 @@
+---
+layout: layouts/base.njk
+title: About
+section: about
+permalink: /about/index.html
+eleventyNavigation:
+  key: about
+  order: 4
+---
+
+<section class="about-hero">
+  <h1>👾 About 8BitSecurity</h1>
+  <p>We're a collective of cybersecurity professionals, red teamers, and threat analysts sharing real-world insights, tools, and tactics.</p>
+</section>
+
+<section class="about-content">
+  <div class="about-mission">
+    <h2>🎯 Our Mission</h2>
+    <p>To empower defenders and attackers alike with actionable, high-quality cybersecurity content that cuts through the noise.</p>
+  </div>
+
+  <div class="about-values">
+    <h2>🧠 What We Believe</h2>
+    <ul>
+      <li>💡 Knowledge should be open and practical</li>
+      <li>🛠 Tools are only as good as the context behind them</li>
+      <li>⚖️ Defense and offense must evolve together</li>
+      <li>👥 Community is the best firewall</li>
+    </ul>
+  </div>
+
+  <div class="about-team">
+    <h2>👥 Who We Are</h2>
+    <p>We're engineers, researchers, and curious minds who believe cybersecurity should be useful, honest, and always evolving. No ads. No clickbait. Just real stories from the field.</p>
+  </div>
+
+  <div class="team-section">
+    <div class="team-grid">
+      {% set team = [
+        {
+          name: "Lorenzo Langeli",
+          role: "Founder",
+          image: "https://1.gravatar.com/avatar/4882d993de224d76291d2b3932c614efe19cf720a69ec577f5ecdbb100c3d3c9?s=400&d=mm",
+          linkedin: "https://www.linkedin.com/in/lorenzolangeli"
+        },
+        {
+          name: "Giovanni Cammarano",
+          role: "Co-Founder",
+          image: "https://2.gravatar.com/avatar/f4ca8b5463d0055f932e7268111b8f68c2edc924f3dcf2f1d0bda96b229a0a99?size=256",
+          linkedin: "https://www.linkedin.com/in/giovanni-cammarano"
+        },
+        {
+          name: "Giorgio Romeo",
+          role: "Editor",
+          image: "https://2.gravatar.com/avatar/8e5aab24dc4b26b22959a1efaed1bf422f7fdbe2ffa87439d7d11299f82787f7?s=96&d=mm&r=G",
+          linkedin: "https://www.linkedin.com/in/giorgio-romeo"
+        },
+        {
+          name: "Mark",
+          role: "Author",
+          image: "https://secure.gravatar.com/avatar/b122023e25182fafbe9dd25d081aa25e?s=96&d=mm&r=g",
+          linkedin: "#"
+        }
+      ] %}
+
+      {% for person in team %}
+      <div class="team-member">
+        <img class="member-icon" src="{{ person.image }}" alt="{{ person.name }}">
+        <h4>{{ person.name }}</h4>
+        <p class="role">{{ person.role | upper }}</p>
+        {% if person.linkedin %}
+          <a href="{{ person.linkedin }}" target="_blank" rel="noopener">
+            <img class="linkedin-icon" src="/static/img/icons/linkedin.png" alt="LinkedIn" />
+          </a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="about-cta">
+    <h2>🤝 Work with Us</h2>
+    <p>Want to contribute a tool review, a threat breakdown, or a red team diary?</p>
+    <a href="/contact" class="cta-button">Contact Us</a>
+  </div>
+</section>

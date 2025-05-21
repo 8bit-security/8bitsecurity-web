@@ -1,0 +1,53 @@
+---
+layout: layouts/base.njk
+title: Blog
+pagination:
+  data: collections.post
+  size: 2
+  alias: posts
+  reverse: true
+  addAllPagesToCollections: true
+permalink: "blog/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+eleventyNavigation:
+  key: Blog
+  order: 2
+---
+
+<section class="blog-archive">
+  <h1>📚 Blog</h1>
+
+  <div class="blog-list">
+    {% for post in posts %}
+      <article class="blog-card">
+        <a class="a-no-style" href="{{ post.url }}">
+          {% if post.data.cover %}
+            <img src="{{ post.data.cover }}" alt="{{ post.data.title }}" class="blog-cover" />
+          {% endif %}
+          <div class="blog-info">
+            <h2>{{ post.data.title }}</h2>
+            <p>{{ post.data.excerpt }}</p>
+            <small>{{ post.date | readableDate }}</small>
+          </div>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+
+  {% if pagination.pages.length > 1 %}
+  <nav class="pagination">
+    {% if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}">← Previous</a>
+    {% endif %}
+
+    {% for href in pagination.hrefs %}
+      <a href="{{ href }}" class="{% if loop.index0 == pagination.pageNumber %}active{% endif %}">
+        {{ loop.index }}
+      </a>
+    {% endfor %}
+
+    {% if pagination.href.next %}
+      <a href="{{ pagination.href.next }}">Next →</a>
+    {% endif %}
+  </nav>
+  {% endif %}
+</section>
