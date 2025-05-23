@@ -1,0 +1,15 @@
+{
+  "totalCvesThisWeek": 128,
+  "topThreatType": "Phishing (38%)",
+  "liveIncidents": 42,
+  "topSector": "Healthcare",
+  "topSectorsChart": {
+    "labels": ["Healthcare", "Finance", "Gov", "Retail", "Tech"],
+    "values": [38, 25, 15, 12, 10]
+  },
+  "trendingCves": [
+    { "id": "CVE-2025-1024", "desc": "Chromium RCE" },
+    { "id": "CVE-2025-0891", "desc": "Windows Kernel Priv Esc" },
+    { "id": "CVE-2025-0903", "desc": "Apache Struts RCE" }
+  ]
+}

@@ -65,9 +65,11 @@ export default function(eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy("favicon.ico");
-  eleventyConfig.addPassthroughCopy("static/img");
+  eleventyConfig.addPassthroughCopy("static/");
   eleventyConfig.addPassthroughCopy("admin/");
   eleventyConfig.addPassthroughCopy("_includes/assets/css/inline.css");
+  eleventyConfig.addPassthroughCopy("static/manifest.webmanifest");
+  eleventyConfig.addPassthroughCopy("static/js/service-worker.js");
 
 
   eleventyConfig.setLibrary("md", markdownIt({

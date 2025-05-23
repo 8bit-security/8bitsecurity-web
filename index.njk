@@ -2,28 +2,57 @@
 layout: layouts/base.njk
 title: Home
 ---
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script> particlesJS.load('particles-js', '/static/js/particles-config.json', function() {console.log('Particles loaded.');}); </script>
 
 <section class="hero">
-  <h2>Real-Time Cybersecurity Threats & Tools</h2>
+  <div id="particles-js"></div>
+  <h2>Real-Time Cybersecurity Threats & Insights</h2>
   <p>Actionable insights, breaking threats, and hands-on toolkits to keep you ahead of attackers.</p>
+</section>
+
+<section class="threat-ticker">
+  <div class="ticker-wrapper">
+    <div class="ticker-content">
+      <span>🚨 CVE-2025-1024 - Remote RCE in Chromium browsers</span>
+      <span>🧬 Phishing campaign mimics Microsoft 365 login</span>
+      <span>🔒 Zero-day exploit used against Fortinet appliances</span>
+      <span>💉 Ransomware group targeting EU hospitals</span>
+    </div>
+  </div>
 </section>
 
 <section class="content-grid">
   {% set tagLabels = {
-    "tools": "🛠 Tool of the Week",
-    "threats": "⚠️ Live Threat Alert",
-    "vulnerabilities": "📊 Vulnerability Breakdown",
     "explainers": "🎓 Explainer",
     "redteam": "📚 Red Team Diaries",
     "research": "💡 Latest Research"
-  } %}
-
+    }
+  %}
+  <div class="card">
+    <a class="a-no-style" href="/tags/tools">
+      <h3>🛠 Tool of the Week</h3>
+      <p>Explore how Burp Suite empowers penetration testers with flexible scanning features.</p>
+    </a>
+  </div>
+  <div class="card">
+    <a class="a-no-style" href="/latest-news">
+      <h3>⚠️ Live Threat Alert</h3>
+      <p>FIN7 targets healthcare with spear-phishing. Get IOCs and detection techniques.</p>
+    </a>
+  </div>
+  <div class="card">
+    <a class="a-no-style" href="/cve-intel-center">
+      <h3>📊 Vulnerability Breakdown</h3>
+      <p>Inside CVE-2025-1024: Remote RCE in Chromium-based browsers. Patch now.</p>
+    </a>
+  </div>
   {% for tag, label in tagLabels %}
     {% set found = false %}
     {% for post in collections.post | reverse %}
       {% if not found and (post.data.tags | hasTag(tag)) %}
         <div class="card">
-          <a class="a-no-style" href="{{ post.url }}">
+          <a class="a-no-style" href="/tags/{{ tag }}">
             <h3>{{ label }}</h3>
             <p>{{ post.data.excerpt }}</p>
           </a>
@@ -54,11 +83,6 @@ title: Home
 </section>
 
 <section class="newsletter-cta">
-  <h3>Stay Ahead of the Curve</h3>
-  <p>Get the latest threat intel, tools, and tactics — straight to your inbox.</p>
-  <form>
-    <input type="email" placeholder="Your email" />
-    <button type="submit">Subscribe</button>
-  </form>
+  <div class="ml-embedded" data-form="AZ77fY"></div>
 </section>
 

@@ -1,0 +1,49 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - nav
+    - post
+    - posts
+permalink: /tags/{{ tag }}/
+layout: layouts/base.njk
+eleventyComputed:
+  title: "Tagged “{{ tag }}”"
+  metaDescription: "All blog posts tagged with “{{ tag }}” on 8Bit Security"
+---
+
+<!--
+## TAGS LIST:
+  - tools
+  - explainers
+  - redteam
+  - research
+-->
+
+<section class="tag-page">
+  <h1 class="tag-title">#{{ tag }}</h1>
+
+  {% if collections[tag].length %}
+    <div class="tag-post-list">
+      {% for post in collections[tag] | reverse %}
+        <article class="tag-post-card">
+          <a href="{{ post.url }}" class="a-no-style">
+            {% if post.data.cover %}
+              <img src="{{ post.data.cover }}" alt="{{ post.data.title }}" class="tag-post-cover" />
+            {% endif %}
+            <div class="tag-post-info">
+              <h2 class="tag-post-title">{{ post.data.title }}</h2>
+              <p class="tag-post-excerpt">{{ post.data.excerpt }}</p>
+              <small>{{ post.date | readableDate }}</small>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No posts found for this tag.</p>
+  {% endif %}
+</section>

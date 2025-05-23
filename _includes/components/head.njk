@@ -7,6 +7,8 @@
   {% set css %}
     {% include "assets/css/inline.css" %}
   {% endset %}
+  <link rel="manifest" href="/static/manifest.webmanifest">
+  <meta name="theme-color" content="#58f6e3">
   <style>{{ css | cssmin | safe }}</style>
   {# Uncomment below if you want to include minified inline JavaScript #}
   {# {% set js %}
