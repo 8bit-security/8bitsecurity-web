@@ -2,6 +2,9 @@
 title: TOP 5 OSINT Sources for Phishing Analysis in 2025
 date: 2025-05-24T15:24:00.000Z
 author: Lorenzo Langeli
+excerpt: Our selection of the best 5 OSINT sources that provide valuable data
+  for analysts and blue teamers to strengthen defenses and monitor ongoing
+  phishing attacks.
 summary: Phishing represents a significant threat in cybersecurity, and
   preventing it requires the use of up-to-date OSINT sources to identify new
   indicators of compromise. Five free resources, including PhishTank and
