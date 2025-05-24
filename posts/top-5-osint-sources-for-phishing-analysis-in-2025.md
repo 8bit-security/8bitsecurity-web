@@ -27,7 +27,7 @@ We’ve selected 5 of the best free and accessible OSINT sources for analysts, r
 
 Founded by Cisco Talos, PhishTank is one of the longstanding platforms for collaborative collection of phishing URLs. Users can report, verify, and monitor suspicious links. Validation is community-based: the more users confirm the malicious nature of a link, the more reliable it becomes as an IOC.
 
-* **URL: **[phishtank.org](https://phishtank.org/)
+* **URL:** [phishtank.org](https://phishtank.org/)
 
 
 * **Data provided:** URL, verification status, submission date
@@ -42,7 +42,7 @@ Founded by Cisco Talos, PhishTank is one of the longstanding platforms for colla
 
 OpenPhish is a threat intelligence platform focused exclusively on phishing. Its free feeds contain active URLs and IOCs collected via proprietary automated analysis. It’s widely used to power SIEMs, firewalls, and EDR solutions.
 
-* **URL:**[openphish.com](https://openphish.com/)
+* **URL:** [openphish.com](https://openphish.com/)
 
 
 * **Data provided:** Malicious URLs, domains, timestamp
