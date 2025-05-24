@@ -23,9 +23,24 @@ collections:
     fields: # The fields for each document, usually in front matter
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Author", name: "author", widget: "string", default: "Anonymous" }
+      - { label: "Author", name: "author", widget: "select", default: "Anonymous",
+           options: [
+            Lorenzo Langeli, 
+            Giovanni Cammarano, 
+            Giorgio Romeo, 
+            Mark
+            ], required: true}
       - { label: "Summary", name: "summary", widget: "text" }
-      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+      - { label: "Cover Image", name: "coverImage", widget: "image", required: false, hint: "Upload a cover image for the blog post"}
+      - { label: "Tags", name: "tags", widget: "select", multiple: true, default: ["post"],
+          options: [
+            tools, 
+            selections,
+            explainers, 
+            redteam, 
+            insights,
+            vulnerabilities
+            ] }
       - { label: "Body", name: "body", widget: "markdown" }
   # Our pages e.g. About
   - name: "pages"

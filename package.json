@@ -23,5 +23,9 @@
     "luxon": "^3.4.4",
     "markdown-it-anchor": "^9.2.0",
     "uglify-js": "^3.17.4"
+  },
+  "dependencies": {
+    "markdown-it": "^14.1.0",
+    "markdown-it-implicit-figures": "^0.12.0"
   }
 }

@@ -5,6 +5,7 @@ import htmlmin from "html-minifier";
 import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
+import implicitFigures from "markdown-it-implicit-figures";
 
 
 export default function(eleventyConfig) {
@@ -71,12 +72,17 @@ export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("static/manifest.webmanifest");
   eleventyConfig.addPassthroughCopy("static/js/service-worker.js");
 
-
-  eleventyConfig.setLibrary("md", markdownIt({
-    breaks: true,
-    linkify: true
-  }).use(markdownItAnchor, {
+ eleventyConfig.setLibrary("md", markdownIt({
+    html: true,        // Enables inline HTML like <br />
+    breaks: true,      // Two-space at end of line = <br>
+    linkify: true      // Auto-convert URLs to links
+  })
+  .use(markdownItAnchor, {
     permalink: false
+  })
+  .use(implicitFigures, {
+    dataType: false,
+    figcaption: true   // Enables <figcaption> from image titles
   }));
 
   return {
