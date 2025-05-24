@@ -615,7 +615,7 @@ footer {
 
 /* === PAGES/ CVE-INTEL-CENTER === */
 .dashboard {
-  max-width: 1000px;
+  max-width: 1400px;
   margin: auto;
   padding: 2rem;
   color: #e4e4e4;
@@ -644,11 +644,22 @@ footer {
   color: #58f6e3;
   margin-top: 0.5rem;
 }
+.charts-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
 .chart-box {
   background: #1c212b;
   border-radius: 12px;
-  padding: 2rem;
-  margin-bottom: 2rem;
+  padding: 1.5rem;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  flex: 1 1 400px;     /* base width */
+  max-width: 500px;
+  min-width: 280px;
 }
 .trending-cves ul {
   list-style: none;

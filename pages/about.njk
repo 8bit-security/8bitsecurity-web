@@ -67,7 +67,7 @@ eleventyNavigation:
       <div class="team-member">
         <img class="member-icon" src="{{ person.image }}" alt="{{ person.name }}">
         <h4>{{ person.name }}</h4>
-        <p class="role">{{ person.role | upper }}</p>
+        <!-- <p class="role">{{ person.role | upper }}</p> -->
         {% if person.linkedin %}
           <a href="{{ person.linkedin }}" target="_blank" rel="noopener">
             <img class="linkedin-icon" src="/static/img/icons/linkedin.png" alt="LinkedIn" />
