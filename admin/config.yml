@@ -31,7 +31,7 @@ collections:
             Mark
             ], required: true}
       - { label: "Summary", name: "summary", widget: "text" }
-      - { label: "Cover Image", name: "coverImage", widget: "image", required: false, hint: "Upload a cover image for the blog post"}
+      - { label: "Cover Image", name: "cover", widget: "image", required: true, hint: "Upload a cover image for the blog post"}
       - { label: "Tags", name: "tags", widget: "select", multiple: true, default: ["post"],
           options: [
             tools, 
