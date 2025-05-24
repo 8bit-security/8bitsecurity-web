@@ -30,6 +30,7 @@ collections:
             Giorgio Romeo, 
             Mark
             ], required: true}
+      - { label: "Wrap-up", name: "excerpt", widget: "text", required: true }
       - { label: "Summary", name: "summary", widget: "text" }
       - { label: "Cover Image", name: "cover", widget: "image", required: true, hint: "Upload a cover image for the blog post"}
       - { label: "Tags", name: "tags", widget: "select", multiple: true, default: ["post"],
