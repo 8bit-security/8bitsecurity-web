@@ -7,6 +7,7 @@ summary: Phishing represents a significant threat in cybersecurity, and
   indicators of compromise. Five free resources, including PhishTank and
   OpenPhish, provide valuable data for analysts and blue teamers to strengthen
   defenses and monitor ongoing attacks.
+coverImage: /static/img/osint5en.png
 tags:
   - selections
 ---
