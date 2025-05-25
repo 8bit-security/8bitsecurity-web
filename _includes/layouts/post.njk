@@ -15,10 +15,16 @@ section: post
     <p class="post-info">
       <time datetime="{{ date | machineDate }}">{{ date | readableDate }}</time>
       {% if author %} • {{ author }}{% endif %}
+      <p class="reading-time">⏱ {{ content | readingTime }} • reading time</p>
     </p>
   </div>
 
   <div class="post-content">
     {{ content | safe }}
   </div>
+
 </article>
+
+{% include "components/donation.njk" %}
+
+{% include "components/recommended.njk" %}

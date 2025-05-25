@@ -1,0 +1,25 @@
+<section class="recommended">
+  <h2>You may also like</h2>
+  <div class="recommended-grid">
+    {% set count = 0 %}
+    {% for related in collections.post | reverse %}
+      {% if related.url != page.url and count < 5 %}
+        {% set count = count + 1 %}
+        <article class="recommended-item">
+          <a href="{{ related.url }}">
+            <img src="{{ related.data.cover }}" alt="{{ related.data.title }}">
+          </a>
+          <div class="recommended-meta">
+            <p class="category">
+              {{ related.data.tags | reject("post") | join(", ") }}
+            </p>
+            <h3 class="title">
+              <a href="{{ related.url }}">{{ related.data.title }}</a>
+            </h3>
+            <p class="author">{{ related.data.author }}</p>
+          </div>
+        </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

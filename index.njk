@@ -26,41 +26,85 @@ title: Home
   {% set tagLabels = {
     "explainers": "🎓 Explainer",
     "redteam": "📚 Red Team Diaries",
-    "research": "💡 Latest Research"
+    "research": "💡 Latest Insights"
     }
   %}
-  <div class="card">
-    <a class="a-no-style" href="/tags/tools">
-      <h3>🛠 Tool of the Week</h3>
-      <p>Explore how Burp Suite empowers penetration testers with flexible scanning features.</p>
-    </a>
-  </div>
-  <div class="card">
-    <a class="a-no-style" href="/latest-news">
-      <h3>⚠️ Live Threat Alert</h3>
-      <p>FIN7 targets healthcare with spear-phishing. Get IOCs and detection techniques.</p>
-    </a>
-  </div>
-  <div class="card">
-    <a class="a-no-style" href="/cve-intel-center">
-      <h3>📊 Vulnerability Breakdown</h3>
-      <p>Inside CVE-2025-1024: Remote RCE in Chromium-based browsers. Patch now.</p>
-    </a>
-  </div>
-  {% for tag, label in tagLabels %}
-    {% set found = false %}
-    {% for post in collections.post | reverse %}
-      {% if not found and (post.data.tags | hasTag(tag)) %}
-        <div class="card">
-          <a class="a-no-style" href="/tags/{{ tag }}">
-            <h3>{{ label }}</h3>
-            <p>{{ post.data.excerpt }}</p>
-          </a>
-        </div>
-        {% set found = true %}
-      {% endif %}
-    {% endfor %}
+
+  {% set latestExplainer = false %}
+  {% set latestRedteam = false %}
+  {% set latestTools = false %}
+  {% set latestInsights = false %}
+  {% set explainerFound = false %}
+  {% set redteamFound = false %}
+  {% set toolsFound = false %}
+  {% set insightsFound = false %}
+  {% for post in collections.post | reverse %}
+    {% if not explainerFound and "explainers" in post.data.tags %}
+      {% set latestExplainer = post %}
+      {% set explainerFound = true %}
+    {% endif %}
+    {% if not redteamFound and "redteam" in post.data.tags %}
+      {% set latestRedteam = post %}
+      {% set redteamFound = true %}
+    {% endif %}
+    {% if not toolsFound and "tools" in post.data.tags %}
+      {% set latestTools = post %}
+      {% set toolsFound = true %}
+    {% endif %}
+    {% if not insightsFound and "insights" in post.data.tags %}
+      {% set latestInsights = post %}
+      {% set insightsFound = true %}
+    {% endif %}
   {% endfor %}
+
+  {% if latestTools %}
+    <div class="card">
+      <a class="a-no-style" href="/tags/tools">
+        <h3>🛠 Tools Selection</h3>
+        <p>{{ latestTools.data.excerpt }}</p>
+      </a>
+    </div>
+  {% endif %}
+  
+  {% if latestExplainer %}
+    <div class="card">
+      <a class="a-no-style" href="/tags/explainers">
+        <h3>🎓 Explainer</h3>
+        <p>{{ latestExplainer.data.excerpt }}</p>
+      </a>
+    </div>
+  {% endif %}
+
+  <div class="card-op">
+    <a class="a-no-style" href="/latest-news">
+      <h3>🌍 Live Threat News</h3>
+      <p>Discover our news feed service and stay always up-to-date with the latest news!</p>
+    </a>
+  </div>
+  <div class="card-op">
+    <a class="a-no-style" href="/cve-intel-center">
+      <h3>📊 Vulnerability Intel Center</h3>
+      <p>Discover our vulnerability service and dig inside CVEs!</p>
+    </a>
+  </div>
+
+  {% if latestInsights %}
+    <div class="card">
+      <a class="a-no-style" href="/tags/insights">
+        <h3>💡 Latest Insights</h3>
+        <p>{{ latestInsights.data.excerpt }}</p>
+      </a>
+    </div>
+  {% endif %}
+  
+  {% if latestRedteam %}
+    <div class="card">
+      <a class="a-no-style" href="/tags/redteam">
+        <h3>📚 Red Team Diaries</h3>
+        <p>{{ latestRedteam.data.excerpt }}</p>
+      </a>
+    </div>
+  {% endif %}
 
 </section>
 

@@ -6,10 +6,12 @@ import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 import implicitFigures from "markdown-it-implicit-figures";
+import readingTime from "eleventy-plugin-reading-time";
 
 
 export default function(eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  eleventyConfig.addPlugin(readingTime);
 
   eleventyConfig.setDataDeepMerge(true);
 
@@ -63,6 +65,11 @@ export default function(eleventyConfig) {
       });
     }
     return content;
+  });
+  
+  eleventyConfig.addFilter("reject", function(arr, value) {
+    if (!Array.isArray(arr)) return arr;
+    return arr.filter(tag => tag !== value);
   });
 
   eleventyConfig.addPassthroughCopy("favicon.ico");
